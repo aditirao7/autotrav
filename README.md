@@ -6,11 +6,11 @@ Gazebo simulation of a 4 wheeled skid steer bot that can perform simple autonomo
       ```bash
          sudo apt-get install ros-melodic-depthimage-to-laserscan
       ```
-   2. Clone repo 
+   2. Clone repo **inside workspace src**:
       ```bash
          git clone https://github.com/aditirao7/auto_trav.git
       ```
-   3. On 2 separate terminals (in mybot_ws), run:
+   3. On 2 separate terminals, run:
       ```bash
          catkin_make && source devel/setup.bash
       ```
