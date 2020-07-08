@@ -1,0 +1,277 @@
+<?xml version='1.0'?>
+
+<robot name="mybot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find mybot_description)/urdf/mybot.gazebo" />
+
+  <link name="chassis">
+    <pose>0 0 0.1 0 0 0</pose>
+    <inertial>
+      <mass value="10.0"/>
+      <origin xyz="0.0 0 0.1" rpy=" 0 0 0"/>
+      <inertia
+          ixx="0.09" ixy="0" ixz="0"
+          iyy="0.09" iyz="0"
+          izz="0.09"
+      />
+    </inertial>
+
+    <collision name='collision'>
+      <geometry>
+        <box size=".4 .2 .1"/>
+      </geometry>
+    </collision>
+
+    <visual name='chassis_visual'>
+      <origin xyz="0 0 0" rpy=" 0 0 0"/>
+      <geometry>
+        <box size=".4 .2 .1"/>
+      </geometry>
+    </visual>
+
+
+
+    
+  </link>
+
+<link name="camera">
+        <!--
+        <collision name="collision_camera">
+                <origin xyz="0 0 0.028575" rpy="0 0 3.1414" />
+                <geometry>
+                         <box size="0.05 0.2 0.05" />
+                </geometry>
+        </collision>
+	-->
+
+	<visual name="camera_visual">
+                <origin xyz="0 0 0.028575" rpy="0 0 3.1414" />
+                <geometry>
+                        <box size="0.05 0.2 0.05" />
+                </geometry>
+        </visual>
+
+
+        <inertial>
+                <mass value="0.1" />
+                <origin xyz="0 0 0.0001" rpy="0 0 3.1414"/>
+                <inertia ixx="0.0001" ixy="0.0" ixz="0.0"
+                         iyy="0.0001" iyz="0.0"
+                         izz="0.0001" />
+        </inertial>
+</link>
+
+<link name="Rultrasonic">
+        <!--
+        <collision name="collision_Rultrasonic">
+                <origin xyz="0 0 0.028575" rpy="0 0 3.1414" />
+                <geometry>
+                         <box size="0.1 0.05 0.05" />
+                </geometry>
+        </collision>
+        -->
+
+	<visual name="Rultrasonic_visual">
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                        <box size="0.05 0.1 0.05" />
+                </geometry>
+        </visual>
+
+
+        <inertial>
+                <mass value="0.1" />
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <inertia ixx="0.0001" ixy="0.0" ixz="0.0"
+                         iyy="0.0001" iyz="0.0"
+                         izz="0.0001" />
+        </inertial>
+</link>
+
+<link name="Lultrasonic">
+        <!--
+        <collision name="collision_Lultrasonic">
+                <origin xyz="0 0 0.028575" rpy="0 0 3.1414" />
+                <geometry>
+                         <box size="0.1 0.05 0.05" />
+                </geometry>
+        </collision>
+        -->
+
+	<visual name="Lultrasonic_visual">
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                        <box size="0.05 0.1 0.05" />
+                </geometry>
+        </visual>
+
+
+        <inertial>
+                <mass value="0.1" />
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <inertia ixx="0.0001" ixy="0.0" ixz="0.0"
+                         iyy="0.0001" iyz="0.0"
+                         izz="0.0001" />
+        </inertial>
+</link>
+
+  <link name="left_wheel">
+    <collision name="collision">
+      <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
+      <geometry>
+        <cylinder radius="0.1" length="0.05"/>
+      </geometry>
+    </collision>
+    <visual name="left_wheel_visual">
+      <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
+      <geometry>
+        <cylinder radius="0.1" length="0.05"/>
+      </geometry>
+    </visual>
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
+      <mass value="5"/>
+      <cylinder_inertia m="5" r="0.1" h="0.05"/>
+      <inertia
+        ixx="0.013" ixy="0.0" ixz="0.0"
+        iyy="0.013" iyz="0.0"
+        izz="0.013"/>
+    </inertial>
+  </link>
+
+
+  <link name="right_wheel">
+    <collision name="collision">
+      <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
+      <geometry>
+        <cylinder radius="0.1" length="0.05"/>
+      </geometry>
+    </collision>
+    <visual name="right_wheel_visual">
+      <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
+      <geometry>
+        <cylinder radius="0.1" length="0.05"/>
+      </geometry>
+    </visual>
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
+      <mass value="5"/>
+      <cylinder_inertia m="5" r="0.1" h="0.05"/>
+      <inertia
+        ixx="0.013" ixy="0.0" ixz="0.0"
+        iyy="0.013" iyz="0.0"
+        izz="0.013"/>
+    </inertial>
+  </link>
+
+
+  <link name="left_fwheel">
+    <collision name="collision">
+      <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
+      <geometry>
+        <cylinder radius="0.1" length="0.05"/>
+      </geometry>
+    </collision>
+    <visual name="left_wheel_fvisual">
+      <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
+      <geometry>
+        <cylinder radius="0.1" length="0.05"/>
+      </geometry>
+    </visual>
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
+      <mass value="5"/>
+      <cylinder_inertia m="5" r="0.1" h="0.05"/>
+      <inertia
+        ixx="0.013" ixy="0.0" ixz="0.0"
+        iyy="0.013" iyz="0.0"
+        izz="0.013"/>
+    </inertial>
+  </link>
+
+
+  <link name="right_fwheel">
+    <collision name="collision">
+      <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
+      <geometry>
+        <cylinder radius="0.1" length="0.05"/>
+      </geometry>
+    </collision>
+    <visual name="right_wheel_fvisual">
+      <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
+      <geometry>
+        <cylinder radius="0.1" length="0.05"/>
+      </geometry>
+    </visual>
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
+      <mass value="5"/>
+      <cylinder_inertia m="5" r="0.1" h="0.05"/>
+      <inertia
+        ixx="0.013" ixy="0.0" ixz="0.0"
+        iyy="0.013" iyz="0.0"
+        izz="0.013"/>
+    </inertial>
+  </link>
+
+  <joint type="continuous" name="left_wheel_hinge">
+    <origin xyz="0.1 0.15 0" rpy="0 0 0"/>
+    <child link="left_wheel"/>
+    <parent link="chassis"/>
+    <axis xyz="0 1 0" rpy="0 0 0"/>
+    <limit effort="100" velocity="100"/>
+    <joint_properties damping="0.0" friction="1.0"/>
+  </joint>
+
+  <joint type="continuous" name="right_wheel_hinge">
+    <origin xyz="0.1 -0.15 0" rpy="0 0 0"/>
+    <child link="right_wheel"/>
+    <parent link="chassis"/>
+    <axis xyz="0 1 0" rpy="0 0 0"/>
+    <limit effort="100" velocity="100"/>
+    <joint_properties damping="0.0" friction="1.0"/>
+  </joint>
+
+
+
+
+ <joint type="continuous" name="left_wheel_fhinge">
+    <origin xyz="-0.11 0.15 0" rpy="0 0 0"/>
+    <child link="left_fwheel"/>
+    <parent link="chassis"/>
+    <axis xyz="0 1 0" rpy="0 0 0"/>
+    <limit effort="100" velocity="100"/>
+    <joint_properties damping="0.0" friction="1.0"/>
+  </joint>
+
+  <joint type="continuous" name="right_wheel_fhinge">
+    <origin xyz="-0.1 -0.15 0" rpy="0 0 0"/>
+    <child link="right_fwheel"/>
+    <parent link="chassis"/>
+    <axis xyz="0 1 0" rpy="0 0 0"/>
+    <limit effort="100" velocity="100"/>
+    <joint_properties damping="0.0" friction="1"/>
+  </joint>
+
+
+
+
+<joint name="kinect_joint" type="fixed">
+        <origin xyz="0.15 0 0.1" rpy="0 0 0" />
+        <child link="camera" />
+        <parent link="chassis" />
+</joint>
+
+<joint name="Rultrasonic_joint" type="fixed">
+        <origin xyz="0 -0.1 0.1" rpy="0 0 4.71239" />
+        <child link="Rultrasonic" />
+        <parent link="chassis" />
+</joint>
+
+<joint name="Lultrasonic_joint" type="fixed">
+        <origin xyz="0 0.1 0.1" rpy="0 0 1.5707" />
+        <child link="Lultrasonic" />
+        <parent link="chassis" />
+</joint>
+
+</robot>
