@@ -18,11 +18,11 @@ Gazebo simulation of a 4 wheeled skid steer bot that can perform simple autonomo
       ```bash
          roslaunch mybot_gazebo mybot_world.launch
          
-         cd src/mybot_description
+         cd src/auto_trav/mybot_description
          chmod +x auto_trav.py
          rosrun mybot_description auto_trav.py 49.9000534303 8.89991622116
          
-         cd src/mybot_description
+         cd src/auto_trav/mybot_description
          chmod +x simple_trav.py
          rosrun mybot_description simple_trav.py 49.9000534303 8.89991622116
       ```
