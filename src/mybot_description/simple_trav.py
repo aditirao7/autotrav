@@ -7,6 +7,8 @@ import math
 import time
 from pyproj import Geod
 from geometry_msgs.msg import Twist
+import sys 
+
 yaw =0 
 gps_angle=0
 lat1=0
@@ -69,18 +71,18 @@ def listener():
             break
     while 1:
         bearing, reverse_bearing, dist = geodesic.inv(lon1,lat1,lon2,lat2)
-        if  dist>3:
+        if  dist>0.5:
             twist.linear.y = 0
             twist.linear.z = 0
             twist.angular.x=0
             twist.angular.y=0
             twist.angular.z=0
-            twist.linear.x= -0.8
+            twist.linear.x= 0.8
             print("Distance: ", dist)
             pub.publish(twist)
             flag=0
         
-        elif dist<3:
+        elif dist<0.5:
             twist.linear.y = 0
             twist.linear.z = 0
             twist.angular.x=0
